@@ -3,9 +3,10 @@ import { useState } from "react";
 import BottomNav from "./common/BottomNav";
 import "./index.css";
 
-import Dives from "./pages/Dives";
-import Home from "./pages/Home";
-import Locations from "./pages/Locations";
+import { APIProvider } from "@vis.gl/react-google-maps";
+import Dives from "./dives/Dives";
+import Home from "./home/Home";
+import Locations from "./locations/Locations";
 
 const darkTheme = createTheme({
   palette: {
@@ -30,11 +31,13 @@ export function App() {
   };
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      {renderPage()}
-      <BottomNav page={page} setPage={setPage} />
-    </ThemeProvider>
+    <APIProvider apiKey="">
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        {renderPage()}
+        <BottomNav page={page} setPage={setPage} />
+      </ThemeProvider>
+    </APIProvider>
   );
 }
 
