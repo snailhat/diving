@@ -1,7 +1,15 @@
+import MapToggle from "@/common/MapToggle";
+import { useState } from "react";
+import DivesMap from "./DivesMap";
+import DivesTable from "./DivesTable";
+
 export default function Dives() {
+  const [showMap, setShowMap] = useState(false);
   return (
-    <div className="dives">
-      <h1>Dives Page</h1>
+    <div>
+      <MapToggle showMap={showMap} setShowMap={setShowMap} />
+      {!showMap && <DivesTable />}
+      {showMap && <DivesMap />}
     </div>
   );
 }
