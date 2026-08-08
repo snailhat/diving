@@ -1,23 +1,40 @@
-import { APITester } from "./APITester";
+import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { useState } from "react";
+import BottomNav from "./common/BottomNav";
 import "./index.css";
 
-import logo from "./logo.svg";
-import reactLogo from "./react.svg";
+import Dives from "./pages/Dives";
+import Home from "./pages/Home";
+import Locations from "./pages/Locations";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 export function App() {
-  return (
-    <div className="app">
-      <div className="logo-container">
-        <img src={logo} alt="Bun Logo" className="logo bun-logo" />
-        <img src={reactLogo} alt="React Logo" className="logo react-logo" />
-      </div>
+  const [page, setPage] = useState("home");
 
-      <h1>Bun + React</h1>
-      <p>
-        Edit <code>src/App.tsx</code> and save to test HMR
-      </p>
-      <APITester />
-    </div>
+  const renderPage = () => {
+    switch (page) {
+      case "home":
+        return <Home />;
+      case "dives":
+        return <Dives />;
+      case "locations":
+        return <Locations />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      {renderPage()}
+      <BottomNav page={page} setPage={setPage} />
+    </ThemeProvider>
   );
 }
 
