@@ -1,7 +1,9 @@
+import ContentBox from "@/common/ContentBox";
+
 export default function Home() {
   return (
-    <div className="home">
+    <ContentBox>
       <h1>Home Page</h1>
-    </div>
+    </ContentBox>
   );
 }

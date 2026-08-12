@@ -5,38 +5,36 @@ import ScubaDivingIcon from "@mui/icons-material/ScubaDiving";
 import { Paper } from "@mui/material";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./BottomNav.css";
 
-export default function BottomNav({
-  page,
-  setPage,
-}: {
-  page: string;
-  setPage: (page: string) => void;
-}) {
+export default function BottomNav() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <Paper className="bottom-nav">
       <BottomNavigation
         showLabels
-        value={page}
+        value={location.pathname}
         onChange={(event, newValue) => {
-          setPage(newValue);
+          navigate(newValue);
         }}
       >
-        <BottomNavigationAction label="Home" value="home" icon={<HomeIcon />} />
+        <BottomNavigationAction label="Home" value="/" icon={<HomeIcon />} />
         <BottomNavigationAction
           label="Dives"
-          value="dives"
+          value="/dives"
           icon={<ScubaDivingIcon />}
         />
         <BottomNavigationAction
           label="Locations"
-          value="locations"
+          value="/locations"
           icon={<LocationOnIcon />}
         />
         <BottomNavigationAction
           label="New Dive"
-          value="new-dive"
+          value="/new-dive"
           icon={<AddIcon />}
         />
       </BottomNavigation>
