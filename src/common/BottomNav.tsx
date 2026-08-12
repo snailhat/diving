@@ -1,9 +1,10 @@
+import AddIcon from "@mui/icons-material/Add";
 import HomeIcon from "@mui/icons-material/Home";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ScubaDivingIcon from "@mui/icons-material/ScubaDiving";
+import { Paper } from "@mui/material";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import Box from "@mui/material/Box";
 import "./BottomNav.css";
 
 export default function BottomNav({
@@ -14,7 +15,7 @@ export default function BottomNav({
   setPage: (page: string) => void;
 }) {
   return (
-    <Box className="bottom-nav">
+    <Paper className="bottom-nav">
       <BottomNavigation
         showLabels
         value={page}
@@ -33,7 +34,12 @@ export default function BottomNav({
           value="locations"
           icon={<LocationOnIcon />}
         />
+        <BottomNavigationAction
+          label="New Dive"
+          value="new-dive"
+          icon={<AddIcon />}
+        />
       </BottomNavigation>
-    </Box>
+    </Paper>
   );
 }
