@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import folium
-import streamlit_folium as st_folium
+from streamlit_folium import st_folium
 st.title("diving app page")
 
 site_name = st.text_input("Site location")
