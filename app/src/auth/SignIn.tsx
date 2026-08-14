@@ -1,5 +1,6 @@
 import {
   Divider,
+  FacebookSignInButton,
   GoogleSignInButton,
   OAuthScreen,
   SignInAuthForm,
@@ -14,6 +15,7 @@ export default function SignIn() {
       <SignInAuthForm onSignIn={() => navigate("/")} />
       <Divider />
       <GoogleSignInButton onSignIn={() => navigate("/")} />
+      <FacebookSignInButton onSignIn={() => navigate("/")} />
     </OAuthScreen>
   );
 }

@@ -10,7 +10,7 @@
       "request": "launch",
       "name": "Debug",
       "program": "src/index.ts",
-      "cwd": "${workspaceFolder}",
+      "cwd": "${workspaceFolder}/app",
       "stopOnEntry": false,
       "watchMode": false
     }
