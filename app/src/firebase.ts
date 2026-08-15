@@ -1,5 +1,6 @@
 import { initializeUI } from "@firebase-oss/ui-core";
 import { initializeApp } from 'firebase/app';
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCjyWLLa4TA8XSI7FgagvZwBAIIKBsYq94",
@@ -11,4 +12,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
 export const ui = initializeUI({ app });
