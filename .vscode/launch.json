@@ -8,11 +8,19 @@
       "type": "bun",
       "internalConsoleOptions": "neverOpen",
       "request": "launch",
-      "name": "Debug",
+      "name": "App",
       "program": "src/index.ts",
       "cwd": "${workspaceFolder}/app",
       "stopOnEntry": false,
       "watchMode": false
+    },
+    {
+      "name": "Admin",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "cwd": "${workspaceFolder}/admin",
+      "args": ["run", "src/main.py"]
     }
   ]
 }
