@@ -9,3 +9,7 @@ export interface LocationData {
 export interface LocationWithId extends LocationData {
   id: string;
 }
+
+export type LocationsProps = {
+  locations: LocationWithId[];
+};

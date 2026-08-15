@@ -31,7 +31,7 @@ export default function Locations() {
       {loading ? (
         <p>Loading...</p>
       ) : showMap ? (
-        <LocationsMap />
+        <LocationsMap locations={locations} />
       ) : (
         <LocationsTable locations={locations} />
       )}

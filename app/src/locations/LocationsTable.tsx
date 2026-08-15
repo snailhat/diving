@@ -5,13 +5,9 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import type { LocationWithId } from "./types";
+import type { LocationsProps, LocationWithId } from "./types";
 
-type LocationsTableProps = {
-  locations: LocationWithId[];
-};
-
-export default function LocationsTable({ locations }: LocationsTableProps) {
+export default function LocationsTable({ locations }: LocationsProps) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
