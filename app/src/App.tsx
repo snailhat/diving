@@ -2,14 +2,14 @@ import { FirebaseUIProvider } from "@firebase-oss/ui-react";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { APIProvider } from "@vis.gl/react-google-maps";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignIn from "./auth/SignIn";
-import BottomNav from "./common/BottomNav";
-import Dives from "./dives/Dives";
+import SignIn from "./features/auth/pages/SignIn";
+import Dives from "./features/dives/pages/Dives";
+import NewDive from "./features/dives/pages/NewDive";
+import Home from "./features/home/pages/Home";
+import Locations from "./features/locations/pages/Locations";
 import { ui } from "./firebase";
-import Home from "./home/Home";
 import "./index.css";
-import Locations from "./locations/Locations";
-import NewDive from "./new_dive/NewDive";
+import BottomNav from "./shared/components/BottomNav";
 
 const darkTheme = createTheme({
   palette: {

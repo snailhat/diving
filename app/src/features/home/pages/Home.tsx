@@ -1,4 +1,4 @@
-import ContentBox from "@/common/ContentBox";
+import ContentBox from "@/shared/components/ContentBox";
 
 export default function Home() {
   return (

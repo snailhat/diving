@@ -1,5 +1,5 @@
 import { Map, Marker } from "@vis.gl/react-google-maps";
-import type { LocationsProps } from "./types";
+import type { LocationsProps } from "../types";
 
 export default function LocationsMap({ locations }: LocationsProps) {
   return (

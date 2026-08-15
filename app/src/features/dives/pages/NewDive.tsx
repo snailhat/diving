@@ -1,4 +1,4 @@
-import ContentBox from "@/common/ContentBox";
+import ContentBox from "@/shared/components/ContentBox";
 import { Button, Card, InputAdornment, Stack, TextField } from "@mui/material";
 
 function NewDiveContainer({ children }: { children: React.ReactNode }) {

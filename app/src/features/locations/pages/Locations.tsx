@@ -1,11 +1,11 @@
-import ContentBox from "@/common/ContentBox";
-import MapToggle from "@/common/MapToggle";
 import { db } from "@/firebase";
+import ContentBox from "@/shared/components/ContentBox";
+import MapToggle from "@/shared/components/MapToggle";
 import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import LocationsMap from "./LocationsMap";
-import LocationsTable from "./LocationsTable";
-import type { LocationData, LocationWithId } from "./types";
+import LocationsMap from "../components/LocationsMap";
+import LocationsTable from "../components/LocationsTable";
+import type { LocationData, LocationWithId } from "../types";
 
 async function getLocations(): Promise<LocationWithId[]> {
   const querySnapshot = await getDocs(collection(db, "locations"));
