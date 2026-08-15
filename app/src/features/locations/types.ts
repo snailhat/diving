@@ -2,7 +2,7 @@ import type { GeoPoint } from "firebase/firestore";
 
 export interface LocationData {
   name: string;
-  address: string
+  address: string;
   geopoint: GeoPoint;
 }
 

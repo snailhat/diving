@@ -1,5 +1,5 @@
 import { initializeUI } from "@firebase-oss/ui-core";
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -8,7 +8,7 @@ const firebaseConfig = {
   projectId: "divingshizz",
   storageBucket: "divingshizz.firebasestorage.app",
   messagingSenderId: "947317020116",
-  appId: "1:947317020116:web:e33d02837d25330cea7241"
+  appId: "1:947317020116:web:e33d02837d25330cea7241",
 };
 
 const app = initializeApp(firebaseConfig);
