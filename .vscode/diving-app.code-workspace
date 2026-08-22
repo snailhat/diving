@@ -1,0 +1,10 @@
+{
+  "folders": [
+    { "name": "🐍 admin", "path": "../admin" },
+    { "name": "🤿 app", "path": "../app" },
+    { "name": "root", "path": "../" },
+  ],
+  "extensions": {
+    "recommendations": ["charliermarsh.ruff"],
+  },
+}
