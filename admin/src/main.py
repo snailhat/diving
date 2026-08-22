@@ -1,7 +1,7 @@
-import streamlit as st
-import pandas as pd
 import folium
+import streamlit as st
 from streamlit_folium import st_folium
+
 from firebase import add_location, get_db, get_locations
 
 db = get_db()

@@ -1,8 +1,8 @@
 import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import firestore
 import pandas as pd
 import streamlit as st
+from firebase_admin import credentials, firestore
+
 
 @st.cache_resource
 def get_db(): 
