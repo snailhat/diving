@@ -10,6 +10,7 @@ import Locations from "./features/locations/pages/Locations";
 import { ui } from "./firebase";
 import "./index.css";
 import BottomNav from "./shared/components/BottomNav";
+import TopNav from "./shared/components/TopNav";
 
 const darkTheme = createTheme({
   palette: {
@@ -22,6 +23,7 @@ export function App() {
     <FirebaseUIProvider ui={ui}>
       <APIProvider apiKey="">
         <ThemeProvider theme={darkTheme}>
+          <TopNav />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<Home />} />
