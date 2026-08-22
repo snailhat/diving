@@ -2,6 +2,7 @@
   "folders": [
     { "name": "🐍 admin", "path": "../admin" },
     { "name": "🤿 app", "path": "../app" },
+    { "name": "🕦 cron", "path": "../cron" },
     { "name": "root", "path": "../" },
   ],
   "extensions": {
