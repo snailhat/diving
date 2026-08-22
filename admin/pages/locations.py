@@ -7,13 +7,19 @@ from streamlit_folium import st_folium
 
 
 def get_locations():
-    locations_ref = db.collection("locations")
-    docs = list(locations_ref.stream())
+    docs = db.collection("locations").stream()
 
-    locations_dict = list(map(lambda x: x.to_dict(), docs))
-    df = pd.DataFrame(locations_dict)
+    records = []
+    for doc in docs:
+        data = doc.to_dict()
+        data["id"] = doc.id
+        if "geopoint" in data and data["geopoint"]:
+            data["latitude"] = data["geopoint"].latitude
+            data["longitude"] = data["geopoint"].longitude
+            del data["geopoint"]
+        records.append(data)
 
-    return df
+    return pd.DataFrame(records)
 
 
 def add_location(site_id, site_name, site_address, lat, long):
@@ -28,20 +34,23 @@ def add_location(site_id, site_name, site_address, lat, long):
 
 
 st.title("Locations")
-df = get_locations()
-st.dataframe(df, hide_index=True)
+tab_view, tab_add, tab_edit = st.tabs(["View", "Add", "Edit"])
 
-with st.form("my_form"):
+with tab_view:
+    df = get_locations()
+    st.dataframe(df, hide_index=True)
+
+with tab_add, st.form("locations", clear_on_submit=True):
     site_id = st.text_input("Site ID")
     site_name = st.text_input("Site Name")
     site_address = st.text_area("Address")
 
-    m = folium.Map(location=[51.5074, -0.1278], zoom_start=10)
+    m = folium.Map(location=[53.1227, -4.1139], zoom_start=5)
     m.add_child(folium.LatLngPopup())
 
-    map_data = st_folium(m, width=700, height=500)
-    lat = 0
-    long = 0
+    map_data = st_folium(m, width=700, height=500, key="location_map")
+
+    lat, long = 0, 0
     if map_data and map_data.get("last_clicked"):
         lat = map_data["last_clicked"]["lat"]
         long = map_data["last_clicked"]["lng"]
@@ -49,3 +58,4 @@ with st.form("my_form"):
     submitted = st.form_submit_button("Submit")
     if submitted:
         add_location(site_id, site_name, site_address, lat, long)
+        st.success(f"Added {site_name}")
