@@ -5,7 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import type { LocationsProps, LocationWithId } from "./types";
+import type { LocationsProps, LocationWithId } from "../types";
 
 export default function LocationsTable({ locations }: LocationsProps) {
   return (
@@ -14,14 +14,14 @@ export default function LocationsTable({ locations }: LocationsProps) {
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell>Address</TableCell>
+            <TableCell>Total Dives</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {locations.map((row: LocationWithId) => (
             <TableRow key={row.id}>
               <TableCell>{row.name}</TableCell>
-              <TableCell>{row.address}</TableCell>
+              <TableCell>{row.stats.total_dives}</TableCell>
             </TableRow>
           ))}
         </TableBody>
