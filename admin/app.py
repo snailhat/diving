@@ -1,8 +1,7 @@
 import folium
 import streamlit as st
-from streamlit_folium import st_folium
-
 from firebase import add_location, get_db, get_locations
+from streamlit_folium import st_folium
 
 db = get_db()
 
@@ -16,7 +15,6 @@ with st.form("my_form"):
     site_id = st.text_input("Site ID")
     site_name = st.text_input("Site Name")
     site_address = st.text_area("Address")
-
 
     m = folium.Map(location=[51.5074, -0.1278], zoom_start=10)
     m.add_child(folium.LatLngPopup())  # shows lat/lng in a popup on click

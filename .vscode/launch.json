@@ -20,7 +20,7 @@
       "request": "launch",
       "module": "streamlit",
       "cwd": "${workspaceFolder}/admin",
-      "args": ["run", "src/main.py"]
+      "args": ["run", "app.py"]
     }
   ]
 }
