@@ -18,8 +18,8 @@ export default function NewDive() {
           <TextField type="text" label="Location" />
         </NewDiveContainer>
         <NewDiveContainer>
-          <TextField type="date" />
-          <TextField type="date" />
+          <TextField type="datetime-local" />
+          <TextField type="datetime-local" />
           <TextField type="number" label="Duration" />
         </NewDiveContainer>
         <NewDiveContainer>
