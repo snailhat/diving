@@ -1,6 +1,8 @@
+import { db } from "@/firebase";
 import ContentBox from "@/shared/components/ContentBox";
 import { Button, Card, InputAdornment, Stack, TextField } from "@mui/material";
-
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import { useState } from "react";
 function NewDiveContainer({ children }: { children: React.ReactNode }) {
   return (
     <Card sx={{ borderRadius: 3, padding: 2 }}>
@@ -8,13 +10,26 @@ function NewDiveContainer({ children }: { children: React.ReactNode }) {
     </Card>
   );
 }
-
+async function submitdive(divenumber: string) {
+  try {
+    const docRef = await addDoc(collection(db, "dives"), {
+      divenumber: divenumber
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
 export default function NewDive() {
+  const [divenumber, setdivenumber] = useState("")
+  const handleSubmit = () => {
+    submitdive(divenumber)
+  }
   return (
     <ContentBox>
       <Stack spacing={2} sx={{ p: 2 }}>
         <NewDiveContainer>
-          <TextField type="number" label="Dive Number" />
+          <TextField type="number" label="Dive Number" value={divenumber} onChange={(e) => setdivenumber(e.target.value)} />
           <TextField type="text" label="Location" />
         </NewDiveContainer>
         <NewDiveContainer>
@@ -93,7 +108,7 @@ export default function NewDive() {
           <TextField type="text" label="Comments" multiline maxRows={5} />
         </NewDiveContainer>
         <NewDiveContainer>
-          <Button variant="contained">Submit</Button>
+          <Button variant="contained" onClick={handleSubmit}>Submit</Button>
           <Button variant="outlined">Cancel</Button>
         </NewDiveContainer>
       </Stack>
